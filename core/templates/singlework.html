@@ -22,7 +22,11 @@
             <h5><a href="{% url 'other_profile' work.profile.id %}">{{work.profile.name}}</a></h5>
         </div>
         <ul>
-            <li>Follow</li>
+            {% if followed %}
+            <a  href="{% url 'unfollow' work.profile.id %}" class="button"><button>Unfollow</button></a>
+            {% else %}
+            <a class="button" href="{% url 'follow' work.profile.id %}"><button>Follow</button></a>
+            {% endif %}
         </ul>
     </div>
     <!-- First Section Project Name User Details Ends Here-->
@@ -69,7 +73,11 @@
                         <h5><i class="fas fa-map-marker-alt"></i>United Kingdom</h5>
                     </div>
                 </div>
-            <button>Follow</button>
+                {% if followed %}
+                <a  href="{% url 'unfollow' work.profile.id %}" class="button"><button>Unfollow</button></a>
+                {% else %}
+                <a class="button" href="{% url 'follow' work.profile.id %}"><button>Follow</button></a>
+                {% endif %}
             <button class="hire-button">Hire Us</button>
             </div>
 
@@ -152,7 +160,11 @@
     <aside class="side-box">
         <div class="side-box-user-follow">
             <img src="{{work.profile.dp.url}}" alt="">
-            <small>Follow</small>
+            {% if followed %}
+            <a  href="{% url 'unfollow' work.profile.id %}" class="button"><button>Unfollow</button></a>
+            {% else %}
+            <a class="button" href="{% url 'follow' work.profile.id %}"><button>Follow</button></a>
+            {% endif %}
         </div>
         <div class="side-box-hire-us">
             <div>

@@ -37,5 +37,12 @@ class Comment(models.Model):
     work = models.ForeignKey(Work, on_delete=models.CASCADE, null=True, blank=True)
     text = models.TextField(null=True, blank=True)
     coment_date = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    
+    
+    
+    
+class Follow(models.Model):
+    following = models.ForeignKey(Profile, on_delete=models.CASCADE, null=True, blank=True, related_name='following')
+    follower = models.ForeignKey(Profile, on_delete=models.CASCADE, null=True, blank=True, related_name='follower')
         
 
